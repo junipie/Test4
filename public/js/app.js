@@ -13,24 +13,43 @@ var DATA = {
   ]
 };
 
-var StudentPanels = React.createClass({
-    render: function() {
-        return (
-				<div>
-					//Create each individual Student Panel
-				</div>
-        	);
-    }
-});
+// var studentdata = DATA.items;
+
+// var StudentPanels = React.createClass({
+//     render: function() {
+//         return (
+// 				<div>
+// 					<div className="col-md-4">
+//                         <div className="panel panel-default">
+//                             <div className="panel-heading">
+//                             <h3 className="panel-title">Student {}</h3>
+//                             </div>
+//                             <div className="panel-body"/>
+//                             {studentdata}
+//                             </div>
+//                         </div>
+//                     </div>
+// 				</div>
+//         	);
+//     }
+// });
+
+var tableTitle = DATA.title;
 
 var StudentBox = React.createClass({
     render: function() {
         return (
 				<div>
-					//Render Student List
+                <div className="container">
+                    <div className="jumbotron">
+                        <h4> {tableTitle} </h4>
+                    </div>
+            
+
 				</div>
+                </div>
         	);
     }
 });
 
-// React.render(<StudentBox/>, document.body)
+React.render(<StudentBox/>, document.body)
