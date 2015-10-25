@@ -13,28 +13,33 @@ var DATA = {
   ]
 };
 
-// var studentdata = DATA.items;
-
-// var StudentPanels = React.createClass({
-//     render: function() {
-//         return (
-// 				<div>
-// 					<div className="col-md-4">
-//                         <div className="panel panel-default">
-//                             <div className="panel-heading">
-//                             <h3 className="panel-title">Student {}</h3>
-//                             </div>
-//                             <div className="panel-body"/>
-//                             {studentdata}
-//                             </div>
-//                         </div>
-//                     </div>
-// 				</div>
-//         	);
-//     }
-// });
-
-var tableTitle = DATA.title;
+var StudentPanels = React.createClass({
+    render: function() {
+        var students = this.props.data.items.map(function(k){
+        return (
+				<div>
+                   <div className="col-md-4">
+                   <div className="panel panel-default">
+                       <div className="panel-heading">
+                           <h3 className="panel-title">Student {k.id}</h3>
+                       </div>
+                       <div className="panel-body">
+                           <p>{k.name}</p>
+                           <p>{k.email}</p>
+                           <p>{k.gpa}</p>
+                       </div>
+                   </div>
+                   </div>
+				</div>
+        	)
+    });
+        return (
+            <div>
+            {students}
+            </div>
+            );
+    }
+});
 
 var StudentBox = React.createClass({
     render: function() {
@@ -42,14 +47,13 @@ var StudentBox = React.createClass({
 				<div>
                 <div className="container">
                     <div className="jumbotron">
-                        <h4> {tableTitle} </h4>
+                        <h4> {this.props.data.title} </h4>
                     </div>
-            
-
+                <StudentPanels data={DATA}/>
 				</div>
                 </div>
         	);
     }
 });
 
-React.render(<StudentBox/>, document.body)
+React.render(<StudentBox data={DATA}/>, document.body)
