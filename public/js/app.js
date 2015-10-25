@@ -41,6 +41,34 @@ var StudentPanels = React.createClass({
     }
 });
 
+var GpaTable= React.createClass({
+    render: function(){
+        function filt(m){
+            return m.gpa>=3.5;
+        }
+        var honorStudents = this.props.data.items.filter(filt).map(function(l){
+            return (
+                <div>
+                  <table className="table">
+                    <tbody>
+                      <tr>
+                        <td>{l.name}</td>
+                        <td>{l.email}</td>
+                        <td>{l.gpa}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                )
+        });
+        return(
+            <div>
+            {honorStudents}
+            </div>
+            );
+    }
+});
+
 var StudentBox = React.createClass({
     render: function() {
         return (
@@ -50,6 +78,7 @@ var StudentBox = React.createClass({
                         <h4> {this.props.data.title} </h4>
                     </div>
                 <StudentPanels data={DATA}/>
+                <GpaTable data={DATA}/>
 				</div>
                 </div>
         	);
