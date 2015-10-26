@@ -49,21 +49,28 @@ var GpaTable= React.createClass({
         var honorStudents = this.props.data.items.filter(filt).map(function(l){
             return (
                 <div>
-                  <table className="table">
-                    <tbody>
                       <tr>
                         <td>{l.name}</td>
                         <td>{l.email}</td>
                         <td>{l.gpa}</td>
                       </tr>
-                    </tbody>
-                  </table>
                 </div>
                 )
         });
         return(
             <div>
-            {honorStudents}
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>GPA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {honorStudents}
+                </tbody>
+              </table>
             </div>
             );
     }
